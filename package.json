@@ -1,0 +1,24 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "An api to manage books and their authors",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/curreythomas/library-api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/curreythomas/library-api/issues"
+  },
+  "homepage": "https://github.com/curreythomas/library-api#readme",
+  "dependencies": {
+    "express": "^4.16.1",
+    "ramda": "^0.24.1"
+  }
+}
