@@ -59,4 +59,4 @@ const dal = {
   deleteBook
 }
 
-module.export = dal
+module.exports = dal
