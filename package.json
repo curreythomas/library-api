@@ -2,8 +2,9 @@
   "name": "library-api",
   "version": "1.0.0",
   "description": "An api to manage books and their authors",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
+    "start": "PORT=4000 node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
