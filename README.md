@@ -16,12 +16,12 @@ $ npm install
 
 You'll need to create a local **.env** file to store your applications secrets. Follow these steps to generate and store the secrets.
 
-0. Create a `COUCH_URL` environment variable: Using Cloudant for example or a local instance of CouchDB, create and API key for the database. Store the key and password within your **.env** file. Use the key and password to create an environment variable named `COUCH_URL` using this pattern `COUCH-URL=https://<key>:<password@<your base url>/`.
+0. Create a `COUCH_URL` environment variable: Using Cloudant for example or a local instance of CouchDB, create and API key for the database. Store the key and password within your **.env** file. Use the key and password to create an environment variable named `COUCH_URL` using this pattern `COUCH_URL=https://<key>:<password@<your base url>/`.
 
   **Example**
 
   ```
-  COUCH-URL=https://<key>:<password@<your base url>/
+  COUCH_URL=https://<key>:<password@<your base url>/
   ```
 
 0. Create a `PORT` environment variable used by the client application to connect and communicate with your api.   
@@ -34,10 +34,10 @@ You'll need to create a local **.env** file to store your applications secrets. 
 
 0. Create a `COUCH_DATABASE` environment variable. The name of the database.
 
-**Example**
-```
-COUCH_DATABASE=library-api
-```
+  **Example**
+  ```
+  COUCH_DATABASE=library-api
+  ```
 
 ### Starting the api
 
@@ -95,6 +95,33 @@ Response 200
 ## Get a book - `GET /books/{id}`
 
 Retrieves a single book by the book `{id}` route parameter.
+
+**Example**
+
+```
+GET /books/book_brave_new_world
+```
+
+**200 Response**
+
+```
+{
+  "title": "A Brave New World",
+  "author": "author_aldous_huxley",
+  "type": "book",
+  "publisher": "Penguin Books",
+  "ISBN": "9780060850524",
+  "genre": "fiction",
+  "description": "Brave New World is a novel written in 1931 by Aldous Huxley, and published in 1932. Set in London in the year AD 2540, the novel anticipates developments in reproductive technology, sleep-learning, psychological manipulation, and classical conditioning that are combined to make a profound change in society.",
+  "rating": 95,
+  "prices": [
+    {"type": "paperback", "price": 9.99},
+    {"type": "hardcover", "price": 19.99},
+    {"type": "audio", "price": 19.99},
+    {"type": "kindle", "price": 12.99}
+    ]
+}
+```
 
 ### Route Parameters
  - `id` - used to identify a book in the collection of books.
