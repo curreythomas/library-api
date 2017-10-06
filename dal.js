@@ -23,6 +23,14 @@ const getBook = (id, callback) => get(id, callback)
 const updateBook = (book, callback) => update(book, callback)
 const deleteBook = (id, callback) => deleteDoc(id, callback)
 
+const addAuthor = (author, callback) => {
+  author._id = pkGen('author', '_', author.name)
+  add(author, callback)
+}
+const getAuthor = getBook
+const updateAuthor = updateBook
+const deleteAuthor = deleteBook
+
 function add(doc, callback) {
   db.put(doc, function(err, data) {
     if (err) {
@@ -68,7 +76,11 @@ const dal = {
   addBook,
   getBook,
   updateBook,
-  deleteBook
+  deleteBook,
+  addAuthor,
+  getAuthor,
+  updateAuthor,
+  deleteAuthor
 }
 
 module.exports = dal

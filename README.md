@@ -48,11 +48,9 @@ $ npm start
 ```
 
 ## Endpoints
-CRUDL
-/books
-/authors
 
-## books
+
+# Books
 ## Create a book - `POST /books`
 
 Add a book to the collection of books by providing a new book resource in the request body.
@@ -65,7 +63,6 @@ POST /books
 {
   "title": "A Brave New World",
   "author": "author_aldous_huxley",
-  "type": "book",
   "publisher": "Penguin Books",
   "ISBN": "9780060850524",
   "genre": "fiction",
@@ -128,7 +125,34 @@ GET /books/book_brave_new_world
 
 ## Update a book - `PUT /books/{id}`
 
-Updates a single book using the book `{id}`route parameter.
+Update a book in the collection of books. Supply the book resource to replace the request body. Include the `_id` and `_rev` key in the resource. The following fields are required:
+
+-`_id`
+-`_rev`
+-`type`
+-`title`
+-`author`
+-`ISBN`
+-`genre`
+-`description`
+
+**Example**
+
+
+
+
+
+
+**200 Response***
+
+```
+{
+  "ok": true,
+  "id": "book_brave_new_world",
+  "rev": "1"
+
+}
+```
 
 ## Delete a book - `DELETE /books/{id}`
 
@@ -156,4 +180,139 @@ DELETE /books/book_brave_new_world
 
 
 
-## /authors
+# Authors
+
+## Create and Author = `POST /authors`
+
+Add an author to the collection of authors by providing a new author resource in the request body. The following fields are required:
+
+- `name`
+- `placeOfBirth`
+- `birthDate`
+
+**Example**
+
+```
+POST /author
+
+{
+  "name": "Aldous Huxley",
+  "placeOfBirth": "London",
+  "birthDate": "1932-05-01"
+}
+```
+
+**Response 200**
+
+```
+{
+  "ok": "true"
+  "author": "author_aldous_huxley"
+  "rev": "1"
+}
+```
+
+
+## Get an Author - `GET /authors/{id}`
+
+Retrieves a single author by the author `{id}` route parameter.
+
+**Example**
+
+```
+GET /author/author_aldous_huxley
+
+{
+  "_id": "author_aldous_huxley"
+  "_rev": "1-DASKLF43905U30FJO034234JOD320"
+  "type": "author"
+  "name": "Aldous Huxley",
+  "placeOfBirth": "London",
+  "birthDate": "1932-05-01"
+}
+```
+
+**200 Response**
+
+```
+{
+  "ok": "true"
+  "author": "author_aldous_huxley"
+  "rev": "1"
+}
+```
+
+### Route Parameters
+ - `id` - used to identify an author in the collection of authors.
+
+
+## Update an Author- `PUT /authors/{id}`
+
+Update an author in the collection of authors. Supply the author resource to replace the request body. Include the `_id` and `_rev` key in the resource. The following fields are required:
+
+ -`_id`
+ -`_rev`
+ -`type`
+ -`name`
+ -`author`
+ -`placeOfBirth`
+ -`birthDate`
+
+
+**Example**
+
+```
+PUT /authors
+{
+  "_id": "author_aldous_huxley",
+  "_rev": "1-DASKLF43905U30FJO034234JOD320",
+  "type": "author",
+  "name": "Aldous Huxley",
+  "placeOfBirth": "London",
+  "birthDate": "1932-05-01"
+}
+```
+
+**200 Response***
+
+```
+{
+  "ok": true,
+  "id": "book_brave_new_world",
+  "rev": "1"
+
+}
+```
+
+## Delete an Author - `DELETE /authors/{id}`
+
+Deletes a single author using the author `{id}`route parameter.
+
+**Example**
+
+```
+DELETE /author/author_aldous_huxley
+
+{
+  "_id": "author_aldous_huxley",
+  "_rev": "1-DASKLF43905U30FJO034234JOD320",
+  "type": "author",
+  "name": "Aldous Huxley",
+  "placeOfBirth": "London",
+  "birthDate": "1932-05-01"
+}
+
+```
+
+**Response 200**
+
+```
+{
+  "ok": true,
+  "id": "author_aldous_huxley"
+  "rev": "2"
+}
+```
+
+
+## List the authors - `GET /authors`
