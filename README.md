@@ -128,7 +128,28 @@ GET /books/book_brave_new_world
 
 ## Update a book - `PUT /books/{id}`
 
-Updates a single book by the book `{id}`route parameter.
+Updates a single book using the book `{id}`route parameter.
+
+## Delete a book - `DELETE /books/{id}`
+
+Deletes a single book using the book `{id}`route parameter.
+
+**Example**
+
+```
+DELETE /books/book_brave_new_world
+```
+
+**Response 200**
+
+```
+{
+  "ok": true,
+  "id": "book_brave_new_world"
+  "rev": "2"
+}
+```
+
 
 ## List the books - `GET /books`
 
